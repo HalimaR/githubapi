@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# GITHUB API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<center>
+    <small>Halima Rahimi </small>
+</center>
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Toegankelijke Scripts
 
-### `npm start`
+Om het project te starten gebruik je `npm start` in de command line.
+Na dat je het project hebt gestart kan je via [http://localhost:3000/githubapi](http://localhost:3000/githubapi) de applicatie in je browser openen.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ES6 functies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### String extension
 
-### `npm test`
+Wanneer we de commitList doorgeven naar de `ListCommits.js` worde de lijst gefiltert en wordt gekeken of het gezochte term in de lijst voorkomt, hierbij is de `.includes()` gebruikt. Dit zorgt dat je op makkelijke en eficientere manier kunt zoeken. Zo moet je geen for-loop opbouwen en elke keer gaan kijken of het gezochte term in lijst voorkomt.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### const keyword
 
-### `npm run build`
+Door heel het projct wordt de `const` key-word heelvaak gebruikt. Op de twee plaatsen waar het key-woord `const` gebrukt wordt is vooral om te zorgen dat de value van de data niet veranderd en hier gaat het over url's en het ophalen van data.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## runnen van testen
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Om de testen te runnen gebruik je `npm test`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Extra Commentaar
 
-### `npm run eject`
+In de `App.js` zijn er twee useEffect methodes die gebruikt worden eenderzijds om een api call te doen naar github en de repositories op te halen en dit gebeurt maar één keer. De tweede call wordt telkens aangeroepen elke keer als de `commits_url` aangepast wordt.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Voor het weergeven van de repositories is er gebruik gemaakt van `Card`. Het doorlinken naar de commits is er gebruik gemaakt van `Link`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bij `ListCommits.js` wordt er nagekeken of de lijst die we binnen krijgen niet leeg is, als de lijst niet leeg is dan worden de commits weergegeven en als het wel leeg is dan wordt een message `your list is empty` weergegeven.
