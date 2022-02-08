@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import ListCommits from './commits/ListCommits';
 
 function App() {
-  const API_URL = '<https://api.github.com/users/HalimaR/repos>';
+  const API_URL = 'https://api.github.com/users/HalimaR/repos';
 
   const [search, setSearch] = useState('');
   const [repoList, setRepoList] = useState([]);
@@ -19,6 +19,7 @@ function App() {
       try{
         const reponse = await fetch(`${API_URL}`);
         if(!reponse.ok) throw Error('Did not receive expected data');
+        const data = await reponse.json();
         setRepoList(data);
         setFetchError(null);
       }catch(err){

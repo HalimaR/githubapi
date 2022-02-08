@@ -24,6 +24,7 @@ Door heel het project wordt de `const` key-word heel vaak gebruikt. Op de twee p
 ## runnen van testen
 
 Om de testen te runnen gebruik je `npm test`.
+Er zit ook één end-to-end test namelijk `repositories_spec.js` en om deze test te laten runnen gebruik je `npx cypress open`.
 
 ## Extra Commentaar
 

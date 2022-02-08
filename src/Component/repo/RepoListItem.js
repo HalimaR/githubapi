@@ -6,7 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import '../css/RepoListItem.css'
+import './RepoListItem.css'
 
 const RepoListItems =({item, setcommits_url}) => {
     const TOTAL_RESULT_PAGE = "?page=1&per_page=20";

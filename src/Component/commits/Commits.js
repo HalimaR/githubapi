@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import moment from 'moment';
-import '../css/Commits.css'
+import './Commits.css'
 
 const Commits=({item}) => {
   return (
