@@ -9,10 +9,10 @@ const Commits=({item}) => {
   return (
     <Card sx={{ minWidth: 275 }} variant="outlined">
       <CardContent>
-      <Typography variant="body2">
+        <Typography variant="body2" component={'span'}>
           <ListItemText className='committextitem' primary={item.commit.message}/>
         </Typography>
-        <Typography sx={{ mb: 1.5 }}  sx={{ fontSize: 14 }} color="text.secondary">
+        <Typography sx={{ mb: 1.5 }}  sx={{ fontSize: 14 }} color="text.secondary" component={'span'}>
           {item.commit.author.name} Committed on {moment(item.commit.author.date).format('MM/DD/YYYY')}
         </Typography>
       </CardContent>

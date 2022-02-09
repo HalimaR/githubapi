@@ -1,7 +1,7 @@
 import Header from './Header';
 import RepoList from './repo/RepoList';
 import { Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import ListCommits from './commits/ListCommits';
 
 function App() {
@@ -13,6 +13,21 @@ function App() {
   const [commits_url, setcommits_url] = useState('');
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setisLoading] = useState(true);
+
+  const fetchComApi = useCallback( async () => {
+    try{
+      setisLoading(true);
+      const reponse = await fetch(`${commits_url}`);
+      if(!reponse.ok) throw Error('Did not receive expected data');
+      const data = await reponse.json();
+      setCommitList((item)=> [...item, ...data]);
+      setFetchError(null);
+    }catch(err){
+      console.log(err);
+    }finally{
+      setisLoading(false);
+    }
+  })
 
   useEffect(() => {
     const fetchRepoApi = async () => {
@@ -32,21 +47,9 @@ function App() {
   },[])
 
   useEffect(() => {
-    const fetchComApi = async () => {
-      try{
-        const reponse = await fetch(`${commits_url}`);
-        if(!reponse.ok) throw Error('Did not receive expected data');
-        const data = await reponse.json();
-        setCommitList(data);
-        setFetchError(null);
-      }catch(err){
-        console.log(err);
-      }finally{
-        setisLoading(false);
-      }
-    }
     fetchComApi();
   },[commits_url])
+
 
   return (
     <div>
