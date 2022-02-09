@@ -20,7 +20,7 @@ function App() {
       const reponse = await fetch(`${commits_url}`);
       if(!reponse.ok) throw Error('Did not receive expected data');
       const data = await reponse.json();
-      setCommitList((item)=> [...item, ...data]);
+      setCommitList(data);
       setFetchError(null);
     }catch(err){
       console.log(err);
@@ -32,11 +32,13 @@ function App() {
   useEffect(() => {
     const fetchRepoApi = async () => {
       try{
+        setisLoading(true);
         const reponse = await fetch(`${API_URL}`);
         if(!reponse.ok) throw Error('Did not receive expected data');
         const data = await reponse.json();
         setRepoList(data);
         setFetchError(null);
+        setisLoading(false);
       }catch(err){
         setFetchError(err.message);
       }finally{
@@ -49,7 +51,6 @@ function App() {
   useEffect(() => {
     fetchComApi();
   },[commits_url])
-
 
   return (
     <div>

@@ -2,7 +2,7 @@ import React from "react";
 import { unmountComponentAtNode } from "react-dom";
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
-import { act } from "react-dom/test-utils";
+import userEvent from '@testing-library/user-event';
 import Search from "../Component/Search";
 
 let container = null;
@@ -29,6 +29,8 @@ test("pass valid value to test search field", async () => {
   const value = "well dubble";
   const { getByTestId } = render(<Search search={value} setSearch={value}/>, container);
   const search = getByTestId("Search");
-  expect(search.textContent).toBe(value);
+  userEvent.type(container, value);
+  expect(search).toBeInTheDocument();
+  expect(search.textContent).toBe('search');
 
 });
