@@ -13,7 +13,6 @@ const RepoListItems =({item, setcommits_url}) => {
     const handleChange=(item)=>{
         const str = item.commits_url.replace("{/sha}","")+TOTAL_RESULT_PAGE;
         setcommits_url(str);
-        console.log(str);
     }
     const url= item.commits_url;
     return (
@@ -35,7 +34,7 @@ const RepoListItems =({item, setcommits_url}) => {
             <CardActions>
             <Link to="/commits" onClick={() => handleChange(item)}>
                 <Button size="small">See Commits
-                    <ListItemText primary="" onClick={() => handleChange(item)}/>
+                    <ListItemText primary=""/>
                 </Button>
             </Link>
             </CardActions>

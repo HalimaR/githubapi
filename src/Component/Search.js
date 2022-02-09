@@ -1,10 +1,9 @@
 import TextField from '@mui/material/TextField';
 
-const Search =({search, setSearch, handleClick}) => {
+const Search =({search, setSearch}) => {
 
   const handleChange=(e)=>{
-    setSearch(e.target.value)
-    console.log(e)
+    setSearch(e.target.value);
   }
 
   return (
@@ -14,8 +13,9 @@ const Search =({search, setSearch, handleClick}) => {
           className='search'
             id="search" 
             label="search" 
-            type="text"
-            variant="standard" 
+            type="search"
+            variant="standard"
+            data-testid="Search"
             value ={search}
             onChange={handleChange}
           />

@@ -48,7 +48,6 @@ function App() {
     fetchComApi();
   },[commits_url])
 
-
   return (
     <div>
       <Header title="Github API"
@@ -60,7 +59,6 @@ function App() {
           element={<RepoList
             repoList={repoList}
             setcommits_url={setcommits_url}
-            
           />}
         />
          <Route path='/commits' 

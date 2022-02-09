@@ -50,6 +50,6 @@ test("fetch repo", async () => {
           <RepoList repoList={fakeRepo} setcommits_url="https://api.github.com/repos/HalimaR/assk8ball/commits{/sha}"/> 
         </Router> , container);
     });
-    expect(screan.getByText("HalimaR/assk8ball")).toBeInTheDocument();
+    expect(container.getByText("HalimaR/assk8ball")).toBeInTheDocument();
     global.fetch.mockRestore();
   });
